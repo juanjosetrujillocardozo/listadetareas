@@ -1,17 +1,26 @@
-const btn = document.querySelector("[data-form-btn]")
+const btn = document.querySelector('[data-form-btn]');
 
 const createTask = (evento) => {
-    evento.preventDefault;
+  evento.preventDefault();
+  const input = document.querySelector('[data-form-input]');
+  const value = input.value;
+  const list = querySelector('[data-list]')
+  const task = document.createElement('li');
+  task.classList.add('card')
+  input.value='';
+  const content = `<div>
+  <i class="far fa-check-square icon"></i>
+  <span class="task">${value}</span>
+</div>
+<i class="fas fa-trash-alt trashIcon icon"></i>`
+task.innerHTML = content;
 
-    const input = document.querySelector(["data-form-input"])
+list.appendChild(task)
 
-    console.log(input.value)
-}
+  console.log(content);
+};
 
-
-console.log(btn)
+console.log(btn);
 
 //Arrow functions o funciones anonimas
-
-
-btn.addEventListener("click", createTask);
+btn.addEventListener('click', createTask);
